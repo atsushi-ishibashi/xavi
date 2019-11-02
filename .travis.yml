@@ -1,0 +1,9 @@
+language: go
+before_install:
+  - GO111MODULE=off go get golang.org/x/lint/golint
+script:
+  - go vet -v $(go list ./... |grep -v 'vendor')
+  - golint $(go list ./... |grep -v 'vendor')
+  - go test -cover $(go list ./... |grep -v 'vendor')
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
