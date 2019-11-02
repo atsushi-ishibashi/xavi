@@ -1,8 +1,17 @@
 # xavi
 [![GoDoc][1]][2]
+[![GoCard][3]][4]
+[![Build Status][5]][6]
+[![codecov][7]][8]
 
 [1]: https://godoc.org/github.com/atsushi-ishibashi/xavi?status.svg
 [2]: https://godoc.org/github.com/atsushi-ishibashi/xavi
+[3]: https://goreportcard.com/badge/github.com/atsushi-ishibashi/xavi
+[4]: https://goreportcard.com/report/github.com/atsushi-ishibashi/xavi
+[5]: https://travis-ci.org/atsushi-ishibashi/xavi.svg?branch=master
+[6]: https://travis-ci.org/atsushi-ishibashi/xavi
+[7]: https://codecov.io/gh/atsushi-ishibashi/xavi/branch/master/graph/badge.svg
+[8]: https://codecov.io/gh/atsushi-ishibashi/xavi
 
 xavi is a Go library for passing through elements from src struct to dst struct.
 
@@ -48,6 +57,11 @@ func main() {
 	}
     var dstHoge DstHoge
     
-    err := xavi.Pass(&dstHoge, hoge)
+    xavi.Pass(&dstHoge, hoge)
+
+	fmt.Printf("%+v", dstHoge)
 }
+
+//Output
+{Description:description ID:1 Name:name Struct:{Name:sub}}
 ```
