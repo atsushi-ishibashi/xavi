@@ -26,8 +26,16 @@ $ go get github.com/atsushi-ishibashi/xavi
 
 ### Example
 ```
+package main
+
+import (
+	"fmt"
+
+	"github.com/atsushi-ishibashi/xavi"
+)
+
 type Hoge struct {
-    Description string
+	Description string
 
 	HogeID     int64   `xavi:"id"`
 	HogeName   string  `xavi:"name"`
@@ -39,7 +47,7 @@ type SubHoge struct {
 }
 
 type DstHoge struct {
-    Description string
+	Description string
 
 	ID     int64   `xavi:"id"`
 	Name   string  `xavi:"name"`
@@ -47,17 +55,17 @@ type DstHoge struct {
 }
 
 func main() {
-    hoge := Hoge{
+	hoge := Hoge{
 		HogeID:   1,
 		HogeName: "name",
 		HogeStruct: SubHoge{
 			Name: "sub",
 		},
-        Description: "description",
+		Description: "description",
 	}
-    var dstHoge DstHoge
-    
-    xavi.Pass(&dstHoge, hoge)
+	var dstHoge DstHoge
+
+	xavi.Pass(&dstHoge, hoge)
 
 	fmt.Printf("%+v", dstHoge)
 }
