@@ -17,7 +17,7 @@ xavi is a Go library for passing through elements from src struct to dst struct.
 
 There are two ways to match elements
 1. To use `xavi` struct tag. It requires those two type are the same.
-2. Field name and type is the same.
+2. Same name and type of field.
 
 ## Installation
 ```
